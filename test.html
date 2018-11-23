@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+/*let arr = [
+	{ 'name': 'lemon', 'age': 18, 'level': 4 },
+	{ 'name': 'lemon2', 'age': 19, 'level': 3 },
+	{ 'name': 'mt', 'age': 21, 'level': 2 },
+	{ 'name': 'mt2', 'age': 20, 'level': 1 },
+];
+
+let sortObj = (arr, parm) => {
+	return arr.sort((x, y) => {
+		return x[parm] - y[parm];
+	});
+};
+// console.log(sortObj(arr, 'level'));
+console.log(sortObj(arr, 'age'));*/
+
+let arr = [55, 2, 5, 29, 12, 22, 1, 30];
+
+let quickSort = (arr) => {
+	debugger;
+	if (arr.length <= 1) return arr;
+
+	let pivotIndex = Math.floor(arr.length * 0.5),
+		pivot = arr.splice(pivotIndex, 1)[0];
+		// pivot = arr[pivotIndex],
+		leftArr = [],
+		rightArr = [];
+
+	for (let i = 0; i < arr.length; i++) {
+		if (arr[i] < pivot) {
+			leftArr.push(arr[i]);
+		} else {
+			rightArr.push(arr[i]);
+		}
+	}
+
+	return quickSort(leftArr).concat([pivot], quickSort(rightArr));
+};
+console.log(quickSort(arr));
+
+</script>
+</body>
+</html>
